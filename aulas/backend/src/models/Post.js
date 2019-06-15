@@ -1,4 +1,4 @@
-const mongoose = reqyure('mongoose');
+const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
     author: String,

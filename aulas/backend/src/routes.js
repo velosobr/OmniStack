@@ -1,8 +1,9 @@
 const express = require('express');
-
+const PostControllers = require('./controllers/PostController');
 const routes = new express.Router();
 
-routes.get('/', (req, res) => {
-    return res.send(`Olá amigo ${req.query.name}`);
-});
-module.exports = routes;
+
+routes.post('/posts', PostControllers.store);
+
+//http://localhost:3333/posts
+module.exports = routes; 

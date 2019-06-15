@@ -6,9 +6,7 @@ mongoose.connect('mongodb+srv://dbAdmin:KHWjdk2QuhKGuyXJ@cluster0-ftmsm.mongodb.
     useNewUrlParser: true,
 
 });
-app.get('/', (req, res) => {
-    return res.send(`Olá amigo ${req.query.name}`);
-});
+app.use(require('./routes'));
 
 
 app.listen(3333);
