@@ -1,17 +1,16 @@
 const express = require('express');
-const multer = require('multer');
-const uploadConfig = require('./config/upload');
-
-const PostControllers = require('./controllers/PostController');
-const likeControllers = require('./controllers/LikeController');
-
-const routes = new express.Router();
-const upload = multer(uploadConfig);
-
-routes.get('/posts', PostControllers.index);
-routes.post('/posts', upload.single('image'), PostControllers.store);
+const DevController = require('./controllers/DevController.js')
+const LikeController = require('./controllers/LikeController.js')
+const DislikeController = require('./controllers/DislikeController.js')
 
 
-routes.post('/posts/:id/like', likeControllers.store);
-//http://localhost:3333/posts
-module.exports = routes; 
+const routes = express.Router();
+
+
+routes.get('/devs', DevController.index)
+routes.post('/devs', DevController.store)
+routes.post('/devs/:devId/likes', LikeController.store)
+routes.post('/devs/:devId/dislikes', DislikeController.store)
+
+module.exports = routes;
+
